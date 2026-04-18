@@ -51,18 +51,18 @@ export function Footer() {
       <div className="absolute inset-0 grid-pattern opacity-5" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-[#FF2D2D]/30 to-transparent" />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 relative z-10">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-x-12 gap-y-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10 relative z-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-x-12 lg:gap-y-8">
           {/* Brand Column */}
-          <div className="lg:col-span-2">
+          <div className="sm:col-span-2 lg:col-span-2">
             <motion.a
               href="#hero"
-              className="flex items-center gap-3 mb-6"
+              className="flex items-center gap-3 mb-4 sm:mb-6"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               <motion.div 
-                className="relative w-12 h-12"
+                className="relative w-10 sm:w-12 h-10 sm:h-12"
                 animate={{ 
                   filter: [
                     "drop-shadow(0 0 0 rgba(255, 45, 45, 0))",
@@ -79,7 +79,7 @@ export function Footer() {
                   className="object-contain"
                 />
               </motion.div>
-              <span className="font-display text-2xl font-bold tracking-tight text-white">
+              <span className="font-display text-xl sm:text-2xl font-bold tracking-tight text-white">
                 TOKYO<motion.span 
                   className="text-[#FF2D2D]"
                   animate={{ 
@@ -100,7 +100,7 @@ export function Footer() {
             </p>
 
             {/* Social Links - Integrated below description */}
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
               {socialLinks.map((link) => {
                 const IconComponent = link.icon; // Esto soluciona el error ts(2339)
                 return (
@@ -111,16 +111,16 @@ export function Footer() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -3, backgroundColor: link.hoverColor, borderColor: link.hoverColor, color: "#ffffff" }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-9 h-9 bg-zinc-900 border border-zinc-800 rounded-full flex items-center justify-center text-zinc-400 transition-all duration-300"
+                  className="w-8 sm:w-9 h-8 sm:h-9 bg-zinc-900 border border-zinc-800 rounded-full flex items-center justify-center text-zinc-400 transition-all duration-300"
                   aria-label={link.label}
                 > 
-                  <IconComponent className="w-4 h-4" />
+                  <IconComponent className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                 </motion.a>
               )})}
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-4 pt-4 border-t border-zinc-900/50">
+            <div className="space-y-3 sm:space-y-4 pt-4 border-t border-zinc-900/50">
               <motion.div 
                 className="flex items-center gap-3 text-sm text-zinc-300"
                 whileHover={{ x: 5 }}
@@ -139,7 +139,7 @@ export function Footer() {
 
             {/* Environmental Badge */}
             <motion.div 
-              className="mt-4 flex items-center gap-3 text-xs text-zinc-500 uppercase tracking-widest"
+              className="mt-3 sm:mt-4 flex items-center gap-3 text-xs text-zinc-500 uppercase tracking-widest"
               animate={{ 
                 filter: [
                   "drop-shadow(0 0 0 rgba(34, 197, 94, 0))",
@@ -156,8 +156,8 @@ export function Footer() {
 
           {/* Links Columns */}
           <div>
-            <h4 className="font-display font-bold text-sm uppercase tracking-widest mb-6 text-white">Productos</h4>
-            <ul className="space-y-3">
+            <h4 className="font-display font-bold text-xs sm:text-sm uppercase tracking-widest mb-4 sm:mb-6 text-white">Productos</h4>
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.productos.map((link, index) => (
                 <motion.li 
                   key={link.name}
@@ -168,7 +168,7 @@ export function Footer() {
                 >
                   <motion.a
                     href={link.href}
-                    className="inline-block text-zinc-400 hover:text-[#FF2D2D] transition-all duration-300 text-sm hover:translate-x-1"
+                    className="inline-block text-zinc-400 hover:text-[#FF2D2D] transition-all duration-300 text-xs sm:text-sm hover:translate-x-1"
                   >
                     {link.name}
                   </motion.a>
@@ -178,8 +178,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display font-bold text-sm uppercase tracking-widest mb-6 text-white">Empresa</h4>
-            <ul className="space-y-3">
+            <h4 className="font-display font-bold text-xs sm:text-sm uppercase tracking-widest mb-4 sm:mb-6 text-white">Empresa</h4>
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.empresa.map((link, index) => (
                 <motion.li 
                   key={link.name}
@@ -190,7 +190,7 @@ export function Footer() {
                 >
                   <motion.a
                     href={link.href}
-                    className="inline-block text-zinc-400 hover:text-[#FF2D2D] transition-all duration-300 text-sm hover:translate-x-1"
+                    className="inline-block text-zinc-400 hover:text-[#FF2D2D] transition-all duration-300 text-xs sm:text-sm hover:translate-x-1"
                   >
                     {link.name}
                   </motion.a>
@@ -200,8 +200,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display font-bold text-sm uppercase tracking-widest mb-6 text-white">Soporte</h4>
-            <ul className="space-y-3">
+            <h4 className="font-display font-bold text-xs sm:text-sm uppercase tracking-widest mb-4 sm:mb-6 text-white">Soporte</h4>
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.soporte.map((link, index) => (
                 <motion.li 
                   key={link.name}
@@ -212,7 +212,7 @@ export function Footer() {
                 >
                   <motion.a
                     href={link.href}
-                    className="inline-block text-zinc-400 hover:text-[#FF2D2D] transition-all duration-300 text-sm hover:translate-x-1"
+                    className="inline-block text-zinc-400 hover:text-[#FF2D2D] transition-all duration-300 text-xs sm:text-sm hover:translate-x-1"
                   >
                     {link.name}
                   </motion.a>
@@ -223,31 +223,31 @@ export function Footer() {
         </div>
 
         {/* Map & Newsletter Section */}
-        <div className="flex flex-col lg:flex-row gap-8 mt-4 items-stretch">
+        <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 mt-6 sm:mt-8 lg:mt-4 items-stretch">
           {/* Newsletter (1/3 approx) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="w-full lg:w-1/3 bg-zinc-950 border border-zinc-800 p-8 rounded-[16px] flex flex-col justify-center"
+            className="w-full lg:w-1/3 bg-zinc-950 border border-zinc-800 p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-[16px] flex flex-col justify-center"
           >
-            <h4 className="font-display font-bold text-xl mb-3 text-white flex items-center gap-2 uppercase tracking-tight">
-              <Send className="w-5 h-5 text-[#FF2D2D]" />
+            <h4 className="font-display font-bold text-lg sm:text-xl mb-2 sm:mb-3 text-white flex items-center gap-2 uppercase tracking-tight">
+              <Send className="w-4 sm:w-5 h-4 sm:h-5 text-[#FF2D2D]" />
               Únete al Club
             </h4>
-            <p className="text-sm text-zinc-400 mb-6">
+            <p className="text-xs sm:text-sm text-zinc-400 mb-4 sm:mb-6">
               Recibe ofertas exclusivas y novedades sobre rendimiento.
             </p>
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <Input 
                 placeholder="Tu correo" 
-                className="bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-600 focus:border-[#FF2D2D] focus:ring-0 h-11"
+                className="bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-600 focus:border-[#FF2D2D] focus:ring-0 h-10 sm:h-11 text-sm"
               />
-              <Button className="bg-[#FF2D2D] hover:bg-[#D42626] text-white font-bold h-11 px-6">
+              <Button className="bg-[#FF2D2D] hover:bg-[#D42626] text-white font-bold h-10 sm:h-11 px-4 sm:px-6 text-sm">
                 Unirse
               </Button>
             </div>
-            <div className="mt-6 flex items-center gap-4 text-zinc-700 grayscale opacity-40">
-               <CreditCard className="w-8 h-8" />
+            <div className="mt-4 sm:mt-6 flex items-center gap-4 text-zinc-700 grayscale opacity-40">
+               <CreditCard className="w-6 sm:w-8 h-6 sm:w-8" />
             </div>
           </motion.div>
 
@@ -257,7 +257,7 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="w-full lg:w-2/3 rounded-[16px] overflow-hidden border border-zinc-800 shadow-2xl relative h-[350px] group"
+          className="w-full lg:w-2/3 rounded-xl sm:rounded-[16px] overflow-hidden border border-zinc-800 shadow-2xl relative h-[250px] sm:h-[300px] md:h-[350px] group"
         >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.1166582556166!2d-73.11454532517556!3d7.112477392891071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683fdd70782d3d%3A0x3868bf73943f08f0!2zU29ucmXDrXI!5e0!3m2!1ses-419!2sco!4v1774983779761!5m2!1ses-419!2sco"
@@ -274,15 +274,15 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-zinc-900 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="border-t border-zinc-900 mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6">
             {/* Copyright */}
-            <p className="text-sm text-zinc-500">
+            <p className="text-xs sm:text-sm text-zinc-500 order-2 sm:order-1">
               © {new Date().getFullYear()} Tokyo Tires Colombia. Todos los derechos reservados.
             </p>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 sm:gap-4 order-1 sm:order-2">
               {socialLinks.map((link) => {
                 const Icon = link.icon;
                 return (
@@ -293,17 +293,17 @@ export function Footer() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.2, y: -3, backgroundColor: link.hoverColor, borderColor: link.hoverColor, color: "#ffffff" }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-zinc-400 transition-all duration-300 shadow-sm"
+                    className="w-9 sm:w-10 h-9 sm:h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-zinc-400 transition-all duration-300 shadow-sm"
                     aria-label={link.label}
                   > 
-                    <Icon size={20} />
+                    <Icon size={18} />
                   </motion.a>
                 )
               })}
             </div>
 
             {/* Legal Links */}
-            <div className="flex items-center gap-6 text-sm">
+            <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm order-3">
               <motion.a
                 href="#"
                 className="text-zinc-500 hover:text-[#FF2D2D] transition-colors"

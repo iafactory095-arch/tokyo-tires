@@ -50,15 +50,15 @@ export function FeaturesSection() {
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360])
 
   return (
-    <section id="features" ref={ref} className="py-24 md:py-32 relative overflow-hidden bg-[#1A1A1A] text-white border-b border-gray-100">
+    <section id="features" ref={ref} className="py-16 sm:py-20 md:py-24 lg:py-32 relative overflow-hidden bg-[#1A1A1A] text-white border-b border-gray-100">
       {/* Animated background circle */}
       <motion.div 
         style={{ rotate }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-primary/5 rounded-full"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[600px] md:w-[800px] h-[500px] sm:h-[600px] md:h-[800px] border border-primary/5 rounded-full"
       />
       <motion.div 
         style={{ rotate }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-primary/10 rounded-full"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[450px] md:w-[600px] h-[350px] sm:h-[450px] md:h-[600px] border border-primary/10 rounded-full"
       />
       
       {/* Grid pattern */}
@@ -70,10 +70,10 @@ export function FeaturesSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <motion.span 
-            className="text-[#FF2D2D] font-bold text-sm uppercase tracking-wider"
+            className="text-[#FF2D2D] font-bold text-xs sm:text-sm uppercase tracking-wider"
             animate={{ 
               textShadow: [
                 "0 0 5px rgba(255, 45, 45, 0.3)",
@@ -85,28 +85,28 @@ export function FeaturesSection() {
           >
             Tecnología
           </motion.span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-4 mb-6 text-balance text-white">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-4 sm:mb-6 text-balance text-white">
             Características de{" "}
             <span className="text-[#FF2D2D]">Calidad Superior</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto text-pretty">
+          <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto text-pretty">
             Cada diseño y compuesto de caucho es seleccionado meticulosamente, 
             asegurando productos que cumplen los más altos estándares mundiales.
           </p>
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
               initial={{ opacity: 0, y: 80 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 + index * 0.15, type: "spring" }}
-              whileHover={{ y: -15, scale: 1.02 }}
+              whileHover={{ y: -10, scale: 1.02 }}
               className="group relative"
             >
-              <div className="bg-[#111111] border border-white/10 rounded-2xl p-8 h-full hover:border-[#FF2D2D]/50 transition-all duration-500 relative overflow-hidden">
+              <div className="bg-[#111111] border border-white/10 rounded-2xl p-5 sm:p-6 md:p-8 h-full hover:border-[#FF2D2D]/50 transition-all duration-500 relative overflow-hidden">
                 {/* Background glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#FF2D2D]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
@@ -114,13 +114,13 @@ export function FeaturesSection() {
                 <motion.div
                   whileHover={{ rotate: 360, scale: 1.2 }}
                   transition={{ duration: 0.6 }}
-                  className="relative z-10 w-16 h-16 bg-[#FF2D2D]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#FF2D2D]/20 transition-colors border border-[#FF2D2D]/20"
+                  className="relative z-10 w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 bg-[#FF2D2D]/10 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#FF2D2D]/20 transition-colors border border-[#FF2D2D]/20"
                 >
-                  <feature.icon className="w-8 h-8 text-[#FF2D2D]" />
+                  <feature.icon className="w-6 sm:w-7 md:w-8 h-6 sm:h-7 md:h-8 text-[#FF2D2D]" />
                   
                   {/* Icon glow */}
                   <motion.div
-                    className="absolute inset-0 rounded-2xl"
+                    className="absolute inset-0 rounded-xl sm:rounded-2xl"
                     animate={{ 
                       boxShadow: [
                         "0 0 0 rgba(220, 38, 38, 0)",
@@ -133,17 +133,17 @@ export function FeaturesSection() {
                 </motion.div>
 
                 {/* Content */}
-                <h3 className="relative z-10 font-display text-xl font-bold mb-3 group-hover:text-[#FF2D2D] transition-colors text-white">
+                <h3 className="relative z-10 font-display text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 group-hover:text-[#FF2D2D] transition-colors text-white">
                   {feature.title}
                 </h3>
-                <p className="relative z-10 text-gray-400 text-sm mb-6">
+                <p className="relative z-10 text-gray-400 text-xs sm:text-sm mb-4 sm:mb-6">
                   {feature.description}
                 </p>
 
                 {/* Stat */}
-                <div className="relative z-10 pt-4 border-t border-white/5">
+                <div className="relative z-10 pt-3 sm:pt-4 border-t border-white/5">
                   <motion.span 
-                    className="font-display text-3xl font-bold text-[#FF2D2D]"
+                    className="font-display text-2xl sm:text-3xl font-bold text-[#FF2D2D]"
                     animate={{ 
                       textShadow: [
                         "0 0 5px rgba(255, 45, 45, 0.3)",
@@ -155,13 +155,13 @@ export function FeaturesSection() {
                   >
                     {feature.stat}
                   </motion.span>
-                  <p className="text-gray-500 text-sm mt-1">
+                  <p className="text-gray-500 text-xs sm:text-sm mt-1">
                     {feature.statLabel}
                   </p>
                 </div>
                 
                 {/* Corner accent */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-tr-2xl" />
+                <div className="absolute top-0 right-0 w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-bl from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-tr-2xl" />
               </div>
 
               {/* External glow effect */}

@@ -31,13 +31,13 @@ export function CTASection() {
   }
 
   return (
-    <section id="cta" ref={ref} className="py-24 md:py-32 relative overflow-hidden bg-white text-[#0A0A0A]">
+    <section id="cta" ref={ref} className="py-16 sm:py-20 md:py-24 lg:py-32 relative overflow-hidden bg-white text-[#0A0A0A]">
       {/* Animated background */}
       <div className="absolute inset-0 grid-pattern opacity-50" />
       
       {/* Animated accents */}
       <motion.div
-        className="absolute top-1/4 -right-32 w-[500px] h-[500px] bg-[#FF2D2D]/10 rounded-full blur-[120px]"
+        className="absolute top-1/4 -right-16 sm:-right-32 w-[300px] sm:w-[400px] md:w-[500px] h-[300px] sm:h-[400px] md:h-[500px] bg-[#FF2D2D]/10 rounded-full blur-[80px] sm:blur-[120px]"
         animate={{
           scale: [1, 1.3, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -45,7 +45,7 @@ export function CTASection() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-1/4 -left-32 w-[500px] h-[500px] bg-[#FF2D2D]/10 rounded-full blur-[120px]"
+        className="absolute bottom-1/4 -left-16 sm:-left-32 w-[300px] sm:w-[400px] md:w-[500px] h-[300px] sm:h-[400px] md:h-[500px] bg-[#FF2D2D]/10 rounded-full blur-[80px] sm:blur-[120px]"
         animate={{
           scale: [1.3, 1, 1.3],
           opacity: [0.5, 0.3, 0.5],
@@ -58,10 +58,10 @@ export function CTASection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-10 md:mb-12"
         >
           <motion.span 
-            className="text-[#FF2D2D] font-bold text-sm uppercase tracking-wider inline-flex items-center gap-2"
+            className="text-[#FF2D2D] font-bold text-xs sm:text-sm uppercase tracking-wider inline-flex items-center gap-2"
             animate={{ 
               textShadow: [
                 "0 0 5px rgba(255, 45, 45, 0.3)",
@@ -71,13 +71,13 @@ export function CTASection() {
             }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="w-3 sm:w-4 h-3 sm:h-4" />
             Interacción Directa
           </motion.span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-4 mb-6 text-balance text-[#0A0A0A]">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-4 sm:mb-6 text-balance text-[#0A0A0A]">
             Encuentra Tu <span className="text-[#FF2D2D]">Llanta Ideal</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto text-pretty">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto text-pretty">
             Ingresa los datos de tu motocicleta y te ayudaremos a encontrar las 
             llantas perfectas para tu estilo de conducción.
           </p>
@@ -94,7 +94,7 @@ export function CTASection() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#FF2D2D]/20 via-[#FF2D2D]/40 to-[#FF2D2D]/20 rounded-2xl blur-xl opacity-30" />
           
           <motion.div 
-            className="relative bg-white border rounded-2xl p-8 md:p-12 overflow-hidden"
+            className="relative bg-white border rounded-xl sm:rounded-2xl p-5 sm:p-8 md:p-10 lg:p-12 overflow-hidden"
             animate={{
               borderColor: ["rgba(255, 45, 45, 0.2)", "rgba(255, 45, 45, 0.6)", "rgba(255, 45, 45, 0.2)"],
               boxShadow: [
@@ -106,10 +106,10 @@ export function CTASection() {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
             {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-[#FF2D2D]/30 rounded-tl-2xl" />
-            <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-[#FF2D2D]/30 rounded-br-2xl" />
+            <div className="absolute top-0 left-0 w-12 sm:w-16 md:w-20 h-12 sm:h-16 md:h-20 border-t-2 border-l-2 border-[#FF2D2D]/30 rounded-tl-xl sm:rounded-tl-2xl" />
+            <div className="absolute bottom-0 right-0 w-12 sm:w-16 md:w-20 h-12 sm:h-16 md:h-20 border-b-2 border-r-2 border-[#FF2D2D]/30 rounded-br-xl sm:rounded-br-2xl" />
             
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
               <motion.div 
                 className="space-y-2"
                 initial={{ opacity: 0, x: -20 }}
@@ -158,15 +158,16 @@ export function CTASection() {
             >
               <motion.div 
                 whileTap={{ scale: 0.95 }}
-                className="hover:scale-105 transition-transform duration-300"
+                className="hover:scale-105 transition-transform duration-300 w-full sm:w-auto"
               >
                 <Button
                   size="lg"
-                  className="bg-[#25D366] hover:bg-[#22c35e] text-white font-bold px-8 shadow-lg flex items-center gap-2"
+                  className="bg-[#25D366] hover:bg-[#22c35e] text-white font-bold px-6 sm:px-8 py-3 sm:py-4 shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto text-sm sm:text-base"
                   onClick={handleWhatsAppContact}
                 >
-                  <MessageCircle className="w-5 h-5" />
-                  Consultar disponibilidad por WhatsApp
+                  <MessageCircle className="w-4 sm:w-5 h-4 sm:h-5" />
+                  <span className="hidden sm:inline">Consultar disponibilidad por WhatsApp</span>
+                  <span className="sm:hidden">Consultar por WhatsApp</span>
                 </Button>
               </motion.div>
             </motion.div>
@@ -178,15 +179,15 @@ export function CTASection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="text-center mt-12"
+          className="text-center mt-8 sm:mt-10 md:mt-12"
         >
-          <p className="text-gray-500 mb-6">
+          <p className="text-gray-500 mb-4 sm:mb-6 text-sm sm:text-base">
             ¿Prefieres contactarnos directamente?
           </p>
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-6">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">
             <motion.a
               href="mailto:tokyotires.co@gmail.com"
-              className="flex items-center gap-2 text-[#0A0A0A] hover:text-[#FF2D2D] transition-colors font-semibold group"
+              className="flex items-center gap-2 text-[#0A0A0A] hover:text-[#FF2D2D] transition-colors font-semibold group text-sm sm:text-base"
               whileHover={{ scale: 1.05 }}
             >
               <motion.div
@@ -199,13 +200,13 @@ export function CTASection() {
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-              <Mail className="w-5 h-5 group-hover:text-[#FF2D2D]" />
+              <Mail className="w-4 sm:w-5 h-4 sm:h-5 group-hover:text-[#FF2D2D]" />
               </motion.div>
               tokyotires.co@gmail.com
             </motion.a>
           <span className="hidden sm:block text-gray-200">|</span>
-          <div className="flex items-center gap-2 text-gray-600">
-            <MapPin className="w-5 h-5 text-[#FF2D2D]" />
+          <div className="flex items-center gap-2 text-gray-600 text-sm sm:text-base">
+            <MapPin className="w-4 sm:w-5 h-4 sm:h-5 text-[#FF2D2D]" />
               Colombia
             </div>
           </div>

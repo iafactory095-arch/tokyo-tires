@@ -86,14 +86,14 @@ export function HeroSection() {
       <div className="absolute inset-0 scanlines pointer-events-none opacity-20" />
 
       {/* Content overlay */}
-      <motion.div style={{ y }} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-32 text-[#0A0A0A]">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <motion.div style={{ y }} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-28 sm:pt-32 md:pt-40 text-[#0A0A0A]">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Text Content - Full width on mobile, left on desktop */}
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2, type: "spring" }}
-            className="text-center lg:text-left bg-white/60 backdrop-blur-[10px] p-8 md:p-16 rounded-[2.5rem] border border-white/30 shadow-2xl relative overflow-hidden"
+            className="text-center lg:text-left bg-white/80 sm:bg-white/70 backdrop-blur-[10px] p-6 sm:p-8 md:p-12 lg:p-16 rounded-2xl sm:rounded-[2.5rem] border border-white/30 shadow-2xl relative overflow-hidden"
           >
             <motion.div
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
@@ -101,16 +101,16 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="inline-block mb-4"
             >
-              <span className="px-4 py-2 bg-[#FF2D2D]/10 border border-[#FF2D2D]/40 rounded-full text-sm font-semibold text-[#FF2D2D]">
+              <div className="px-3 sm:px-4 py-1.5 sm:py-2 bg-[#FF2D2D]/10 border border-[#FF2D2D]/40 rounded-full sm:rounded-full text-xs sm:text-sm font-semibold text-[#FF2D2D] whitespace-nowrap">
                 Llantas para Motocicletas - Calidad Japonesa
-              </span>
+              </div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative h-20 sm:h-28 lg:h-32 mb-8 w-full max-w-[280px] sm:max-w-[350px] lg:max-w-[450px] mx-auto lg:mx-0"
+              className="relative h-16 sm:h-20 md:h-24 lg:h-28 mb-6 sm:mb-8 w-full max-w-[220px] sm:max-w-[280px] md:max-w-[350px] lg:max-w-[450px] mx-auto lg:mx-0"
             >
               <Image
                 src="/images/Logo_Horizontal.png"
@@ -125,7 +125,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-lg md:text-xl text-gray-600 mb-10 max-w-prose mx-auto lg:mx-0 leading-relaxed"
+              className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8 md:mb-10 max-w-prose mx-auto lg:mx-0 leading-relaxed"
             >
               Neumáticos con diseño japonés de calidad superior. 60% de caucho natural 
               para máximo agarre y rendimiento en todas las condiciones.
@@ -135,12 +135,12 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button
                   size="lg"
-                  className="bg-[#0A0A0A] hover:bg-black text-white font-semibold text-lg px-8 py-6 shadow-lg transition-all"
+                  className="bg-[#0A0A0A] hover:bg-black text-white font-semibold text-sm sm:text-base md:text-lg px-6 sm:px-8 py-4 sm:py-5 md:py-6 shadow-lg transition-all w-full sm:w-auto"
                   asChild
                 >
                   <a href="/catalogo tokyo (1).pdf" download="Catalogo_Tokyo_Tires_2026.pdf">Ver Catálogo</a>
@@ -166,12 +166,13 @@ export function HeroSection() {
               >
                 <Button
                   size="lg"
-                  className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold text-lg px-8 py-6 shadow-lg transition-all flex items-center gap-2"
+                  className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold text-sm sm:text-base md:text-lg px-6 sm:px-8 py-4 sm:py-5 md:py-6 shadow-lg transition-all flex items-center justify-center gap-2 w-full sm:w-auto"
                   asChild
                 >
                   <a href="https://wa.me/573125165270" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="w-6 h-6" />
-                    Chatea con un asesor
+                    <MessageCircle className="w-5 sm:w-6 h-5 sm:h-6" />
+                    <span className="hidden sm:inline">Chatea con un asesor</span>
+                    <span className="sm:hidden">Asesor</span>
                   </a>
                 </Button>
               </motion.div>

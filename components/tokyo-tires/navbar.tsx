@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, MessageCircle, Facebook, Instagram, Music } from "lucide-react"
+import { Menu, X, MessageCircle, Facebook, Instagram, Music, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
@@ -143,7 +143,7 @@ export function Navbar() {
 
               {/* Mobile Menu Button */}
             <motion.button
-                className="lg:hidden text-[#0A0A0A] p-2"
+                className={`lg:hidden p-2 transition-colors ${isMobileMenuOpen ? "text-white" : "text-[#0A0A0A]"}`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
               whileTap={{ scale: 0.9 }}
@@ -185,14 +185,29 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-24 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-[#0A0A0A]/98 backdrop-blur-xl pt-24 px-6 md:hidden"
           >
-            <div className="flex flex-col gap-6">
+            {/* Close button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
+              aria-label="Cerrar menú"
+            >
+              <X size={28} />
+            </button>
+
+            {/* Decorative elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#FF2D2D]/5 rounded-full blur-3xl" />
+              <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-[#FF2D2D]/3 rounded-full blur-2xl" />
+            </div>
+
+            <div className="flex flex-col gap-6 relative z-10">
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
-                  className="text-2xl font-display font-bold text-[#0A0A0A] hover:text-[#FF2D2D] transition-colors"
+                  className="text-2xl font-display font-bold text-white hover:text-[#FF2D2D] transition-colors border-b border-white/10 pb-4"
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -200,13 +215,28 @@ export function Navbar() {
                 >
                   <motion.span
                     whileHover={{ x: 10 }}
-                    className="flex items-center gap-4"
+                    className="flex items-center justify-between"
                   >
-                    <span className="text-[#FF2D2D] text-sm">0{index + 1}</span>
-                    {link.name}
+                    <span className="flex items-center gap-4">
+                      <span className="text-[#FF2D2D] text-sm font-mono">0{index + 1}</span>
+                      {link.name}
+                    </span>
+                    <ArrowRight className="w-5 h-5 text-white/30" />
                   </motion.span>
                 </motion.a>
               ))}
+              
+              {/* Mobile CTA */}
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <motion.a
+                  href="https://wa.me/573125165270"
+                  className="flex items-center justify-center gap-3 bg-[#25D366] text-white font-bold py-4 px-8 rounded-xl"
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Chatea con nosotros
+                </motion.a>
+              </div>
             </div>
           </motion.div>
         )}

@@ -42,7 +42,7 @@ export function TestimonialsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="testimonials" ref={ref} className="py-24 md:py-32 bg-[#1A1A1A] relative overflow-hidden">
+    <section id="testimonials" ref={ref} className="py-16 sm:py-20 md:py-24 lg:py-32 bg-[#1A1A1A] relative overflow-hidden">
       {/* Grid pattern */}
       <div className="absolute inset-0 grid-pattern opacity-10" />
       
@@ -52,10 +52,10 @@ export function TestimonialsSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <motion.span 
-            className="text-[#FF2D2D] font-bold text-sm uppercase tracking-wider"
+            className="text-[#FF2D2D] font-bold text-xs sm:text-sm uppercase tracking-wider"
             animate={{ 
               textShadow: [
                 "0 0 5px rgba(255, 45, 45, 0.2)",
@@ -67,11 +67,11 @@ export function TestimonialsSection() {
           >
             Testimonios
           </motion.span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-4 mb-6 text-balance text-white">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-4 sm:mb-6 text-balance text-white">
             Lo Que Dicen{" "}
             <span className="text-[#FF2D2D]">Nuestros Clientes</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto text-pretty">
+          <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto text-pretty">
             Miles de motociclistas confían en Tokyo Tires. Aquí hay algunas de sus experiencias.
           </p>
         </motion.div>
@@ -81,7 +81,7 @@ export function TestimonialsSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-6 mb-16"
+          className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-10 sm:mb-12 md:mb-16"
         >
           {trustBadges.map((badge, index) => (
             <motion.div
@@ -90,7 +90,7 @@ export function TestimonialsSection() {
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.4, delay: 0.3 + index * 0.1, type: "spring" }}
               whileHover={{ scale: 1.05, y: -3 }}
-              className="flex items-center gap-3 px-6 py-3 bg-white border border-gray-100 rounded-full shadow-sm"
+              className="flex items-center gap-2 sm:gap-3 px-4 sm:px-5 md:px-6 py-2 sm:py-3 bg-white border border-gray-100 rounded-full shadow-sm"
             >
               <motion.div
                 animate={{ 
@@ -102,15 +102,15 @@ export function TestimonialsSection() {
                 }}
                 transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
               >
-                <badge.icon className="w-5 h-5 text-[#FF2D2D]" />
+                <badge.icon className="w-4 sm:w-5 h-4 sm:h-5 text-[#FF2D2D]" />
               </motion.div>
-              <span className="font-medium text-sm text-[#0A0A0A]">{badge.label}</span>
+              <span className="font-medium text-xs sm:text-sm text-[#0A0A0A]">{badge.label}</span>
             </motion.div>
           ))}
         </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
@@ -120,24 +120,24 @@ export function TestimonialsSection() {
               whileHover={{ y: -10, scale: 1.02 }}
               className="group relative"
             >
-              <div className="bg-white border border-gray-100 rounded-2xl p-8 hover:border-[#FF2D2D]/30 transition-all duration-500 h-full relative shadow-sm">
+              <div className="bg-white border border-gray-100 rounded-2xl p-5 sm:p-6 md:p-8 hover:border-[#FF2D2D]/30 transition-all duration-500 h-full relative shadow-sm">
                 {/* Background glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#FF2D2D]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
                 
                 {/* Quote Icon */}
                 <motion.div 
-                  className="absolute -top-4 left-8"
+                  className="absolute -top-3 sm:-top-4 left-5 sm:left-8"
                   initial={{ scale: 0, rotate: -20 }}
                   animate={isInView ? { scale: 1, rotate: 0 } : {}}
                   transition={{ delay: 0.4 + index * 0.1, type: "spring" }}
                 >
-                  <div className="w-8 h-8 bg-[#FF2D2D] rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(255,45,45,0.4)]">
-                    <Quote className="w-4 h-4 text-white" />
+                  <div className="w-6 sm:w-8 h-6 sm:h-8 bg-[#FF2D2D] rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(255,45,45,0.4)]">
+                    <Quote className="w-3 sm:w-4 h-3 sm:h-4 text-white" />
                   </div>
                 </motion.div>
 
                 {/* Rating */}
-                <div className="flex gap-1 mb-4 mt-2 relative z-10">
+                <div className="flex gap-1 mb-3 sm:mb-4 mt-1 relative z-10">
                   {Array.from({ length: testimonial.rating }).map((_, i) => (
                     <motion.div
                       key={i}
@@ -145,20 +145,20 @@ export function TestimonialsSection() {
                       animate={isInView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ delay: 0.5 + index * 0.1 + i * 0.05 }}
                     >
-                      <Star className="w-4 h-4 fill-[#FF2D2D] text-[#FF2D2D]" />
+                      <Star className="w-3 sm:w-4 h-3 sm:h-4 fill-[#FF2D2D] text-[#FF2D2D]" />
                     </motion.div>
                   ))}
                 </div>
 
                 {/* Content */}
-                <p className="text-[#0A0A0A] mb-6 text-pretty leading-relaxed relative z-10">
+                <p className="text-[#0A0A0A] mb-4 sm:mb-6 text-pretty leading-relaxed relative z-10 text-sm sm:text-base">
                   {`"${testimonial.content}"`}
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center gap-4 relative z-10">
+                <div className="flex items-center gap-3 sm:gap-4 relative z-10">
                   <motion.div 
-                    className="w-12 h-12 bg-[#FF2D2D]/10 rounded-full flex items-center justify-center border border-[#FF2D2D]/20"
+                    className="w-10 sm:w-12 h-10 sm:h-12 bg-[#FF2D2D]/10 rounded-full flex items-center justify-center border border-[#FF2D2D]/20"
                     whileHover={{ scale: 1.1 }}
                     animate={{ 
                       boxShadow: [
@@ -169,13 +169,13 @@ export function TestimonialsSection() {
                     }}
                     transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
                   >
-                    <span className="font-bold text-[#FF2D2D]">
+                    <span className="font-bold text-[#FF2D2D] text-xs sm:text-sm">
                       {testimonial.avatar}
                     </span>
                   </motion.div>
                   <div>
-                    <div className="font-semibold text-[#0A0A0A]">{testimonial.name}</div>
-                    <div className="text-sm text-gray-500">
+                    <div className="font-semibold text-[#0A0A0A] text-sm sm:text-base">{testimonial.name}</div>
+                    <div className="text-xs sm:text-sm text-gray-500">
                       {testimonial.role}
                     </div>
                   </div>

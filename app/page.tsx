@@ -28,20 +28,62 @@ export const metadata: Metadata = {
     locale: 'es_CO',
     type: 'website',
   },
+  other: {
+    'product:availability': 'https://schema.org/InStock',
+    'product:price:currency': 'COP',
+  },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Tokyo Tires',
+  description: 'Llantas de alto rendimiento para motocicletas con ingeniería de precisión japonesa',
+  url: 'https://tokyo-tires.com',
+  logo: 'https://tokyo-tires.com/images/logo1.png',
+  sameAs: [
+    'https://www.facebook.com/share/1AqAwpNBhv/',
+    'https://www.instagram.com/tokyotires.co',
+    'https://wa.me/573125165270',
+    'https://www.tiktok.com/@tokyotires.co',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+57-312-516-5270',
+    contactType: 'customer service',
+    availableLanguage: ['Spanish'],
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'CO',
+    addressRegion: 'Santander',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Colombia',
+  },
+  serviceType: 'Neumáticos para motorcycles',
+  priceRange: '$$',
 }
 
 export default function TokyoTiresLanding() {
   return (
-    <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <CategoriesSection />
-      <FeaturesSection />
-      <BrandImpactSection />
-      <TestimonialsSection />
-      <CTASection />
-      <Footer />
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
+        <Navbar />
+        <HeroSection />
+        <AboutSection />
+        <CategoriesSection />
+        <FeaturesSection />
+        <BrandImpactSection />
+        <TestimonialsSection />
+        <CTASection />
+        <Footer />
+      </main>
+    </>
   )
 }
